@@ -33,3 +33,10 @@ void checkEdges() {
     yspeed = yspeed * -1;
   }
 }
+
+// When making your code more modular like this
+// it's easier to see where things have gone
+// wrong, for instance you can comment out one
+// or more of the functions and see if the
+// others still work as a result and go from
+// there
