@@ -13,7 +13,7 @@ void draw() {
   background(255);
   b.ascend();
   b.display();
-  //b.top();
+  b.top();
 }
 
 /* Defining the class means defining what it means to be a bubble,

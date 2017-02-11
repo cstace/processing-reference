@@ -46,7 +46,7 @@ void draw() {
   background(255);
   display();
   ascend();
-  //top();
+  top();
   println(y);
 }
 
@@ -62,5 +62,7 @@ void ascend() {
 }
 
 void top() {
- 
+  if (y < 32) {
+    y = 32;
+  }
 }

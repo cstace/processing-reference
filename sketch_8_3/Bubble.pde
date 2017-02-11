@@ -16,7 +16,7 @@ class Bubble {
 
   // This above is the constructor
   // it's return type is "Bubble" (it must match the class name)
-  
+
   void ascend() {
     y--;
   }
@@ -25,6 +25,12 @@ class Bubble {
     stroke(0);
     fill(127);
     ellipse(x, y, 64, 64);
+  }
+
+  void top() {
+    if (y < 32) {
+      y = 32;
+    }
   }
 }
 
