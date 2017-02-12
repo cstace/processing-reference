@@ -1,11 +1,13 @@
 class Particle {
   float x, y;
   float r;
+  float s;
 
   Particle() {
     x = random(width);
     y = random(height);
     r = random(18, 50);
+    s = random(1, 3);
   }
 
   //This is called overloading the constructor
@@ -28,10 +30,11 @@ class Particle {
   //been written with the intended ability of
   //overloading the constructor
 
-  Particle (float x_, float y_, float r_) {
+  Particle (float x_, float y_, float r_, float s_) {
     x = x_;
     y = y_;
     r = r_;
+    s = s_;
     println(r_);
   }
 
@@ -39,10 +42,23 @@ class Particle {
   //as there are Objects being created in the other
   //tab
 
+  boolean overlaps(Particle other) {
+    float d = dist(x, y, other.x, other.y);
+    if (d < (r + other.r) + (s + other.s) / 2) {
+      //if the distance between the two particles
+      //is less than the sum of their radii, plus
+      //the sum of their strokes divided by two,
+      //return true
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   void display() {
     noFill();
     stroke(255);
-    strokeWeight(3);
+    strokeWeight(s);
     ellipse(x, y, r*2, r*2);
   }
 }

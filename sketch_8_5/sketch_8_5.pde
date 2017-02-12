@@ -20,12 +20,18 @@
 
 Particle p1;
 Particle p2;
+Particle p3;
+Particle p4;
+Particle p5;
 
 void setup() {
   size(600, 400);
   pixelDensity(2);
-  p1 = new Particle(100, 100, 50);
-  p2 = new Particle(mouseX, mouseY, random(0, 50));
+  p1 = new Particle(width/2, height/2, 35, 25);
+  p2 = new Particle(mouseX, mouseY, random(0, 50), 5);
+  p3 = new Particle(mouseX, mouseY, random(0, 50), 5);
+  p4 = new Particle(mouseX, mouseY, random(0, 50), 5);
+  p5 = new Particle(mouseX, mouseY, random(0, 50), 5);
 }
 
 //you can pass the constructor built-in variables
@@ -35,9 +41,27 @@ void setup() {
 void draw() {
   background(0);
   
-  float d = dist(p1.x, p1.y, p2.x, p2.y);
-  if (d < p1.r+1.5 + p2.r+1.5) {
+  //float d = dist(p1.x, p1.y, p2.x, p2.y);
+  //if (d < p1.r+1.5 + p2.r+1.5) {
+  //  background(255,0,0);
+  //}
+  
+   //Let's write the above function in an oop way
+  
+  if (p1.overlaps(p2)) {
     background(255,0,0);
+  }
+  
+  if (p1.overlaps(p3)) {
+    background(0,255,0);
+  }
+  
+  if (p1.overlaps(p4)) {
+    background(0,0,255);
+  }
+  
+  if (p1.overlaps(p5)) {
+    background(255,255,0);
   }
   
   //we define a new variable "d" to determine
@@ -51,7 +75,19 @@ void draw() {
 
   p2.x = mouseX;
   p2.y = mouseY;
+  
+  p3.x = mouseX + 150;
+  p3.y = mouseY;
+  
+  p4.x = mouseX + 150;
+  p4.y = mouseY + 150;
+  
+  p5.x = mouseX;
+  p5.y = mouseY + 150;
 
   p1.display();
   p2.display();
+  p3.display();
+  p4.display();
+  p5.display();
 }
